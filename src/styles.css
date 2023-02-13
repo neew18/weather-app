@@ -18,6 +18,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     background-color: #5095e4;
   }
   
@@ -44,3 +45,16 @@ main {
     margin-bottom: 1rem;
   }
   
+
+/*footer*/
+
+
+.coder > p  > a{
+    font-weight: 600;
+    color: black;
+}
+
+.coder > p  > a:hover{
+    color:  rgb(22, 21, 21);
+    text-decoration: none ;
+}
