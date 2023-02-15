@@ -26,50 +26,39 @@
         <form method="#" class="row">
           <input
             id="search-input"
-            class="col-6 form-control form-control-lg ml-4 mr-3"
+            class="col-8 form-control form-control-lg ml-4 mr-3"
             type="text"
             placeholder="Search for a city..."
+            autocomplete="off"
           />
           <button
             id="searchButton"
-            class="btn btn-primary btn-lg"
+            class="btn btn-primary btn-lg ml-2 pl-4 pr-4"
             type="submit"
           >
             search
           </button>
-          <button
-            id="currentButton"
-            class="btn btn-primary btn-lg ml-3"
-            type="submit"
-          >
-            current
-          </button>
         </form>
-        <div class="row city-temp">
+        <div class="row city-temp mb-2">
           <div class="col-7">
-            <h1 id="city-to-change" class="display-4 mt-4">Yangon</h1>
-            <em>
-              <p id="datetime-to-change" class="h4 ml-2">Thursday 01:00</p>
-            </em>
+            <h1 id="city-to-change" class="display-5 mt-4 text-capitalize"></h1>
+            <p class="h4 ml-2">Last updated at<br/><span id="datetime-to-change"></span</p>
+            <p id="description" class="d-inline text-capitalize ml-2" id="description"></p>
+            <img id="weather-icon" src="#" alt="weather icon">
           </div>
           <div class="col-5">
             <p class="h3 mt-4 ml-5 pl-5">
               <a href="#" class="text-dark" id="fahrenheit">ºF</a> |
               <a href="#" class="text-primary" id="celcius">ºC</a>
             </p>
-            <p id="temperature" class="display-1">23</p>
+            <p id="temperature" class="display-1"></p>
           </div>
         </div>
         <div class="row bg-light ml-1 mr-1 rounded">
-          <div class="col-4 text-center">
-            Precipitation:<br />
-            1%
+          <div class="col-6 text-center">
+            Humidity: <span id="humidity"></span>%
           </div>
-          <div class="col-4 text-center">
-            Humidity:<br />
-            78%
-          </div>
-          <div class="col-4 text-center">Wind: <br />5 mph</div>
+          <div class="col-6 text-center">Wind: <span id="wind"></span> km/h</div>
         </div>
         <div class="row next-5-days mt-4 pl-4">
           <div class="col-2 ml-4">
@@ -101,7 +90,7 @@
       </div>
       <div class="coder">
         <p class="mt-3 "><a href="https://github.com/neew18/weather-app" target="_blank">Open-source code</a>, by <a class="text-uppercase" href="https://neew18.github.io/neew-links-tree" target="_blank">Nann Ei Ei Win</a></p>
-    </div>
+      </div>
     </main>
     <footer></footer>
     <script
