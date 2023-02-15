@@ -46,16 +46,30 @@ h1 {
   margin-bottom: 1rem;
 }
 
+#description {
+  font-style: italic;
+}
+
 #weather-icon {
   width: 5.5rem;
 }
 
-.coder > p  > a{
+#fahrenheit:hover,#celsius:hover{
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#repo-link,#coder:hover{
   font-weight: 600;
   color: black;
 }
 
-.coder > p  > a:hover{
+#repo-link:hover,#coder:hover{
   color:  rgb(22, 21, 21);
   text-decoration: none ;
+}
+
+#coder{
+  color: inherit;
+  transition: all 200ms ease-in-out;
 }

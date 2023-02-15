@@ -18,11 +18,12 @@ function displayCityTemperature(response) {
   //Displaying the searched city
   let cityToChange = document.querySelector("#city-to-change");
   cityToChange.innerHTML = response.data.name;
-  
+
   //Display the searched city's temperature
   let cityTemp = Math.round(response.data.main.temp);
   let tempToDisplay = document.querySelector("#temperature");
   tempToDisplay.innerHTML = cityTemp;
+  celsiusTemperature = cityTemp;
 
   //Display the searched city's date and time
   let dateAndTime = document.querySelector("#datetime-to-change");
@@ -55,10 +56,6 @@ function getInput(event) {
   if (/[a-z]/gi.test(city) === false) {
     alert("Please type in a city");
   } else {
-    let cityToChange = document.querySelector("#city-to-change");
-
-    cityToChange.innerHTML = city;
-
     //getting the searched city's temperature
     search(city);
   }
@@ -70,7 +67,45 @@ function search(city){
   axios.get(apiUrl).then(displayCityTemperature);
 }
 
-//Default 
+//use the user's device location and  make the weather in that place Default 
 search("New York");
+
+// User types in a city and clicks the submit button 
 const searchButton = document.querySelector("#searchButton");
 searchButton.addEventListener("click", getInput);
+
+let celsiusTemperature = null;
+
+// Converting the temperature units
+
+function toCelsius(event) {
+  event.preventDefault();
+
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = Math.round(celsiusTemperature);
+
+  //changing the color of the unit links
+  convertToCelsius.classList.remove("text-dark");
+  convertToCelsius.classList.add("text-primary");
+  convertToFahrenheit.classList.remove("text-primary");
+  convertToFahrenheit.classList.add("text-dark");
+}
+
+function toFahrenheit(event) {
+  event.preventDefault();
+  let converted = celsiusTemperature * 1.8 + 32;
+  let temperature = document.querySelector("#temperature");
+  temperature.innerHTML = Math.round(converted);
+
+  //changing the color of the unit links
+  convertToCelsius.classList.remove("text-primary");
+  convertToCelsius.classList.add("text-dark");
+  convertToFahrenheit.classList.remove("text-dark");
+  convertToFahrenheit.classList.add("text-primary");
+}
+
+let convertToCelsius = document.querySelector("#celsius");
+convertToCelsius.addEventListener("click", toCelsius);
+
+let convertToFahrenheit = document.querySelector("#fahrenheit");
+convertToFahrenheit.addEventListener("click", toFahrenheit);
