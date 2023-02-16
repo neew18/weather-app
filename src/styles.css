@@ -36,13 +36,9 @@ h1 {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
-
-.temp-units:hover {
-  cursor: pointer;
-}
-
-.icons {
-  width: 5rem;
+.celsius{
+  font-size: 4rem;
+  padding-top: 3rem;
 }
 
 #description {
@@ -53,11 +49,17 @@ h1 {
   width: 5.5rem;
 }
 
+/*
+
+.temp-units:hover {
+  cursor: pointer;
+}
+
 #fahrenheit:hover,
 #celsius:hover {
   text-decoration: none;
   font-weight: 700;
-}
+}*/
 
 .next-5-days {
   display: grid;
@@ -78,6 +80,10 @@ h1 {
 .temp-min-forecast {
   opacity: 0.8;
   font-size: 1.2rem;
+}
+
+.icons {
+  width: 5rem;
 }
 
 #repo-link,
