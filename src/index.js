@@ -114,17 +114,32 @@ convertToFahrenheit.addEventListener("click", toFahrenheit);
 
 //Weather forecast
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
-  //console.log(response.data);
   let forecastToDisplay = document.querySelector("#forecast");
   let forecastHTML = `<div class="next-5-days mt-4">`;
-  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-  days.forEach(function (day) {
-    forecastHTML += `<div class="each-day">
-    <p>Tue</p>
-    <img src="#" alt="" class="icons">
-    <p>93°</p>
+  let forecast = response.data.daily;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML += `<div class="each-day">
+    <p class="m-0">${formatDay(forecastDay.dt)}</p>
+    <img src="http://openweathermap.org/img/wn/${
+      forecastDay.weather[0].icon
+    }@2x.png" alt="weather icon" class="icons">
+    <p>${Math.round(
+      forecastDay.temp.max
+    )}° <span class="temp-min-forecast">${Math.round(
+        forecastDay.temp.min
+      )}°</span></p>
   </div>`;
+    }
   });
   forecastHTML += `</div>`;
   forecastToDisplay.innerHTML = forecastHTML;

@@ -42,8 +42,7 @@ h1 {
 }
 
 .icons {
-  font-size: 2.3rem;
-  margin-bottom: 1rem;
+  width: 5rem;
 }
 
 #description {
@@ -74,6 +73,11 @@ h1 {
 
 .each-day:hover {
   background-color: rgba(255, 255, 255, 0.18);
+}
+
+.temp-min-forecast {
+  opacity: 0.8;
+  font-size: 1.2rem;
 }
 
 #repo-link,
