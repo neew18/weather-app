@@ -46,6 +46,8 @@ function displayCityTemperature(response) {
   let windSpeed = document.querySelector("#wind");
   humidity.innerHTML = response.data.main.humidity;
   windSpeed.innerHTML = Math.round(response.data.wind.speed);
+
+  getForecast(response.data.coord);
 }
 
 function getInput(event) {
@@ -61,16 +63,16 @@ function getInput(event) {
   }
 }
 
-function search(city){
+function search(city) {
   let apiKey = "863238029d9dfa4b08aae7c3cedb56d6";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayCityTemperature);
 }
 
-//use the user's device location and  make the weather in that place Default 
+//use the user's device location and  make the weather in that place Default
 search("New York");
 
-// User types in a city and clicks the submit button 
+// User types in a city and clicks the submit button
 const searchButton = document.querySelector("#searchButton");
 searchButton.addEventListener("click", getInput);
 
@@ -109,3 +111,27 @@ convertToCelsius.addEventListener("click", toCelsius);
 
 let convertToFahrenheit = document.querySelector("#fahrenheit");
 convertToFahrenheit.addEventListener("click", toFahrenheit);
+
+//Weather forecast
+
+function displayForecast(response) {
+  //console.log(response.data);
+  let forecastToDisplay = document.querySelector("#forecast");
+  let forecastHTML = `<div class="next-5-days mt-4">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
+  days.forEach(function (day) {
+    forecastHTML += `<div class="each-day">
+    <p>Tue</p>
+    <img src="#" alt="" class="icons">
+    <p>93°</p>
+  </div>`;
+  });
+  forecastHTML += `</div>`;
+  forecastToDisplay.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "9e0fb79c2f66d0cd0dcf06710976a873";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}

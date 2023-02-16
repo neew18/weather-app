@@ -54,22 +54,41 @@ h1 {
   width: 5.5rem;
 }
 
-#fahrenheit:hover,#celsius:hover{
+#fahrenheit:hover,
+#celsius:hover {
   text-decoration: none;
   font-weight: 700;
 }
 
-#repo-link,#coder:hover{
+.next-5-days {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.each-day {
+  padding-top: 1rem;
+  text-align: center;
+  border-radius: 1rem;
+  transition: all 200ms ease-in-out;
+}
+
+.each-day:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+#repo-link,
+#coder:hover {
   font-weight: 600;
   color: black;
 }
 
-#repo-link:hover,#coder:hover{
-  color:  rgb(22, 21, 21);
-  text-decoration: none ;
+#repo-link:hover,
+#coder:hover {
+  color: rgb(22, 21, 21);
+  text-decoration: none;
 }
 
-#coder{
+#coder {
   color: inherit;
   transition: all 200ms ease-in-out;
 }
