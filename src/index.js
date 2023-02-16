@@ -76,9 +76,10 @@ search("New York");
 const searchButton = document.querySelector("#searchButton");
 searchButton.addEventListener("click", getInput);
 
+/*
 let celsiusTemperature = null;
 
-// Converting the temperature units
+Converting the temperature units
 
 function toCelsius(event) {
   event.preventDefault();
@@ -86,7 +87,7 @@ function toCelsius(event) {
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = Math.round(celsiusTemperature);
 
-  //changing the color of the unit links
+  changing the color of the unit links
   convertToCelsius.classList.remove("text-dark");
   convertToCelsius.classList.add("text-primary");
   convertToFahrenheit.classList.remove("text-primary");
@@ -99,7 +100,7 @@ function toFahrenheit(event) {
   let temperature = document.querySelector("#temperature");
   temperature.innerHTML = Math.round(converted);
 
-  //changing the color of the unit links
+  changing the color of the unit links
   convertToCelsius.classList.remove("text-primary");
   convertToCelsius.classList.add("text-dark");
   convertToFahrenheit.classList.remove("text-dark");
@@ -111,6 +112,7 @@ convertToCelsius.addEventListener("click", toCelsius);
 
 let convertToFahrenheit = document.querySelector("#fahrenheit");
 convertToFahrenheit.addEventListener("click", toFahrenheit);
+*/
 
 //Weather forecast
 
