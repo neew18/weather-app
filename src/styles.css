@@ -41,6 +41,10 @@ h1 {
   padding-top: 3rem;
 }
 
+#temperature{
+  font-weight: 700;
+}
+
 #description {
   font-style: italic;
 }
