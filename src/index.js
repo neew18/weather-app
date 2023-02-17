@@ -23,7 +23,7 @@ function displayCityTemperature(response) {
   let cityTemp = Math.round(response.data.main.temp);
   let tempToDisplay = document.querySelector("#temperature");
   tempToDisplay.innerHTML = cityTemp;
-  celsiusTemperature = cityTemp;
+  //celsiusTemperature = cityTemp;
 
   //Display the searched city's date and time
   let dateAndTime = document.querySelector("#datetime-to-change");
@@ -70,7 +70,19 @@ function search(city) {
 }
 
 //use the user's device location and  make the weather in that place Default
-search("New York");
+function getCity(response) {
+  let city = response.data.name;
+  search(city);
+}
+
+function getPosition(position) {
+  let latitude = position.coords.latitude;
+  let longitude = position.coords.longitude;
+  let apiKey = "863238029d9dfa4b08aae7c3cedb56d6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+  axios.get(apiUrl).then(getCity);
+}
+let userLocation = navigator.geolocation.getCurrentPosition(getPosition);
 
 // User types in a city and clicks the submit button
 const searchButton = document.querySelector("#searchButton");
